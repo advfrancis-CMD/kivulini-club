@@ -55,7 +55,18 @@
             transition: 0.3s; 
             box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         }
-
+/* Membership Form Styling */
+.membership-form { width: 100%; max-width: 500px; text-align: left; }
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: var(--primary); }
+.form-group input, .form-group select, .form-group textarea { 
+    width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; 
+}
+.submit-btn { 
+    background: var(--primary); color: white; border: none; padding: 12px 25px; 
+    border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; transition: 0.3s;
+}
+.submit-btn:hover { background: #8b0000; }
         .sidebar.active { left: 0; }
 
         .sidebar a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 0.9em; display: block; margin: 15px 0; padding: 8px; border-radius: 3px; transition: 0.2s; }
@@ -119,6 +130,7 @@
             <a href="#library" onclick="toggleMenu()">Legal Library</a>
             <a href="#member-section" onclick="toggleMenu()">Member Area</a>
             <a href="#contact" onclick="toggleMenu()">Contact Us</a>
+            <a href="#join" onclick="toggleMenu()">Join the Club</a>
         </aside>
 
         <main class="content">
@@ -190,7 +202,42 @@
                     </ul>
                 </div>
             </section>
-
+<!-- Join the Club Form Section -->
+<section id="join" style="padding-top:100px; margin-top:-100px;">
+    <h2>Join the Club</h2>
+    <div class="card">
+        <p>Fill out the form below to apply for membership.</p>
+        
+        <!-- Replace YOUR_FORM_ID with the ID provided by Formspree -->
+        <form class="membership-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label>TUMA Student ID</label>
+                <input type="text" name="student_id" required placeholder="TUMA/LAW/2026/XXXX">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" required placeholder="Enter your student email">
+            </div>
+            <div class="form-group">
+                <label>Year of Study</label>
+                <select name="year">
+                    <option value="Year 1">Year 1</option>
+                    <option value="Year 2">Year 2</option>
+                    <option value="Year 3">Year 3</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Why do you want to join?</label>
+                <textarea name="message" rows="4" placeholder="Briefly explain your interest"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Application</button>
+        </form>
+    </div>
+</section>
             <div id="member-section" style="text-align: center; padding: 20px; border: 1px solid #ccc; margin-top: 20px;">
                 <h3>Kivulini Club Member Portal</h3>
                 <p>Access sensitive mock trial strategies and internal documents.</p>
