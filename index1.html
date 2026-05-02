@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kivulini Moot & Mock Trial</title>
+    <style>
+        :root { --primary: #b30000; --dark-bg: #1a1a1a; --sidebar-bg: #fdfdfd; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; background-color: #fff; }
+        .top-header { background: var(--primary); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+        .logo-container { display: flex; align-items: center; background: #fff; padding: 5px 10px; border-radius: 4px; }
+        .logo-container img { height: 40px; }
+        .club-info { color: #fff; flex: 1; margin-left: 15px; }
+        .club-info h2 { margin: 0; font-size: 1em; text-transform: uppercase; }
+        .ticker-wrap { background: #eee; color: var(--primary); padding: 10px 0; margin-top: 80px; overflow: hidden; position: relative; border-bottom: 1px solid #ddd; }
+        .ticker { display: inline-block; white-space: nowrap; padding-left: 100%; animation: moveTicker 25s linear infinite; font-weight: bold; font-size: 0.9em; }
+        @keyframes moveTicker { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
+        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1350&q=80'); background-size: cover; height: 200px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+        .main-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; }
+        .sidebar { background: var(--sidebar-bg); border-right: 1px solid #eee; padding: 30px 20px; }
+        .sidebar a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 0.9em; display: block; margin: 15px 0; padding: 8px; border-radius: 3px; transition: 0.2s; }
+        .sidebar a:hover { background: #fee; }
+        .content { padding: 30px; }
+        .content { padding: 30px; }
+        .grid-3 { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Increases space between cards */
+}
+
+.card { 
+    background: #fff; 
+    padding: 40px 20px; /* Increased top/bottom padding for more white space */
+    border: 1px solid #eee; 
+    border-top: 5px solid var(--primary); 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    margin-bottom: 20px; 
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img {
+    width: 180px; /* Size of the photo */
+    height: 180px; /* Must match width for a perfect circle */
+    border-radius: 50%;
+    margin-bottom: 25px; /* More space before the name */
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    image-rendering: -webkit-optimize-contrast;
+}
+    image-rendering: -webkit-optimize-contrast; 
+}
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .map-container { width: 100%; height: 400px; margin-top: 20px; border: 2px solid #eee; }
+        footer { background: var(--dark-bg); color: #fff; padding: 30px; text-align: center; }
+        @media (max-width: 768px) { .main-container { grid-template-columns: 1fr; } .sidebar { padding: 15px; border-right: none; border-bottom: 1px solid #eee; } .top-header { width: 100%; left: 0; padding: 10px 0; justify-content: space-around; } }
+    </style>
+</head>
+<body>
+    <header class="top-header">
+        <div class="logo-container"><img src="logo.jpg" alt="Logo"></div>
+        <div class="club-info"><h2>Kivulini Moot & Mock Trial</h2><small>Faculty of Law | TUMA</small></div>
+    </header>
+    <div class="ticker-wrap"><div class="ticker">ANNOUNCEMENTS: Next Mock Trial Simulation coming soon! | New Case Summaries uploaded to the Legal Library | Registration for 2026 is still open.</div></div>
+    <div class="hero"><h1>Moot Court Club</h1></div>
+    <div class="main-container">
+        <aside class="sidebar">
+            <h3 style="color:var(--primary); font-size:0.8em;">NAVIGATION</h3>
+            <a href="#home">Overview</a>
+            <a href="#execs">Executive Board</a>
+            <a href="#library">Legal Library</a>
+            <a href="#contact">Contact Us</a>
+        </aside>
+        <main class="content">
+           <section id="home" style="padding-top:100px; margin-top:-100px;">
+    <h2 style="text-align:center; border-bottom: 2px solid var(--primary); padding-bottom:10px;">Founder's Welcome Note</h2>
+    
+    <div class="card" style="text-align: left; align-items: flex-start; padding: 40px;">
+        <p><strong>Welcome to the Kivulini Moot and Mock Trial Club!</strong></p>
+        
+        <p>The Kivulini Moot and Mock Trial Club at Tumaini University Makumira (TUMA) provides a unique platform for aspiring legal professionals to bridge the gap between classroom theory and courtroom reality. We offer an environment conducive for the realization of each student’s advocacy dreams, focusing on the rigorous development of research, oral presentation, and strategic litigation skills.</p>
+        
+        <p>Our mission is driven by the pursuit of legal excellence and the translation of knowledge into meaningful solutions that improve our society. Whether you are interested in the complexities of the <strong>Corporate Law</strong>, the nuances of <strong>Criminal Procedure</strong>, or the evolving landscape of <strong>International Law</strong>, our club is the place where you can thrive.</p>
+        
+        <p>It is my privilege to serve as the Founder and Coordinator of this organization, which devotes itself to nurturing your unique skills and preparing you to serve the legal system anywhere and everywhere. By joining us, you are engaging with a community committed to academic excellence and professional growth.</p>
+        
+        <p>You have chosen the right path to sharpen your legal mind. You have chosen to be a leader of tomorrow!</p>
+        
+        <p><strong>Elisha Patrick Francis</strong><br>
+        Founder & Coordinator<br>
+        Kivulini Moot and Mock Trial Club<br>
+    </div>
+</section>
+    <h2>Executive Board</h2><section id="home">
+    <div class="grid-3">
+        <div class="card">
+            <img src="elisha.jpg" alt="Elisha" class="profile-img" onerror="this.style.background='#ddd'">
+            <h4>Elisha Patrick Francis</h4>
+            <p style="font-size:0.8em;">Founder & Coordinator. 2nd Year Law Student at TUMA. Specialized focus on the International Criminal Law, Law of Evidence, and Criminal Procedure.</p>
+        </div>
+        <div class="card">
+           <img src="bernad.png" alt="Yunge" class="profile-img" onerror="this.style.background='#ddd'">
+            <h4>Steven J Yunge</h4>
+            <p style="font-size:0.8em;">General Secretary. Specializing in legal research and drafting and Litigation.</p>
+        </div>
+        <div class="card">
+           <img src="bernad-mapi.png" alt="Elisha" class="profile-img" onerror="this.style.background='#ddd'">
+            <h4>Bernard M Mapi</h4>
+            <p style="font-size:0.8em;">Organizing Secretary. Coordinator for moot simulations and member training.</p>
+        </div>
+    </div>
+</section>
+<section id="library" style="padding-top:80px; margin-top:-100px;">
+    <h2>Legal Library</h2>
+    <div class="grid-3">
+        <!-- This is the card you provided -->
+        <div class="card">
+            <div class="card">
+    <h4>Legal Document Library</h4>
+    <ul style="list-style: none; padding: 0; font-size: 0.8em;">
+        <li style="margin-bottom: 10px;">
+            <a href="criminal-procedure.pdf" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 Criminal Procedure Act</a>
+        </li>
+        <li style="margin-bottom: 10px;">
+            <a href="PROTOCOL TO THE AFRICAN CHARTER ON HUMAN AND PEOPLES' RIGHTS ON THE RIGHTS OF WOMEN IN AFRICA.pdf" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 African Chartels Resources</a>
+            <li style="margin-bottom: 12px; border-bottom: 10px;">
+            <a href="MALABO_PROTOCOL.pdf" 
+               style="color:var(--primary); text-decoration: none; font-weight: bold;">
+               📄 Malabo Protocol
+            </a>
+        </li>
+
+        <li style="margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 5px;">
+            <a href="AFRICAN_CHARTER.pdf" 
+               style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 African Charter on Human and Peoples' Rights</a>
+        </li>       
+        <li style="margin-bottom: 10px;">
+            <a href="international-law.pdf" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 Public International Law Notes</a>
+        </li>
+    </ul>
+</div>
+
+        <!-- You can add more cards here for other subjects like Tort Law or Criminal Procedure -->
+    </div>
+</section>
+            </section>
+            <section id="contact" style="padding-top:100px; margin-top:-100px;">
+                <h2>Club Location</h2>
+                <div class="card">
+                    <h4>Kivulini Moot & Mock Trial Club Headquarters</h4>
+                    <div class="map-container">
+                        <iframe width="100%" height="100%" frameborder="0" src="https://maps.google.com/maps?q=-3.3717555,36.8288723&hl=en&z=17&amp;output=embed"></iframe>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>© 2026 Kivulini Moot & Mock Trial Club | Tumaini University Makumira</footer>
+</body>
+</html>
