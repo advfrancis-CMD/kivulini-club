@@ -20,8 +20,44 @@
 
         .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1350&q=80'); background-size: cover; height: 200px; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
         
-        .main-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 250px 1fr; }
-        .sidebar { background: var(--sidebar-bg); border-right: 1px solid #eee; padding: 30px 20px; height: 100vh; position: sticky; top: 80px; }
+        .menu-toggle {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1100;
+            background: #fff;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .main-container { max-width: 1200px; margin: 0 auto; display: block; }
+        
+        .sidebar { 
+            background: var(--sidebar-bg); 
+            border-right: 1px solid #eee; 
+            padding: 80px 20px 30px 20px; 
+            height: 100vh; 
+            position: fixed; 
+            top: 0; 
+            left: -270px; 
+            width: 250px;
+            z-index: 1050;
+            transition: 0.3s; 
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar.active { left: 0; }
+
         .sidebar a { text-decoration: none; color: var(--primary); font-weight: bold; font-size: 0.9em; display: block; margin: 15px 0; padding: 8px; border-radius: 3px; transition: 0.2s; }
         .sidebar a:hover { background: #fee; }
 
@@ -55,13 +91,14 @@
         footer { background: var(--dark-bg); color: #fff; padding: 30px; text-align: center; }
 
         @media (max-width: 768px) { 
-            .main-container { grid-template-columns: 1fr; } 
-            .sidebar { height: auto; position: relative; top: 0; padding: 15px; border-right: none; border-bottom: 1px solid #eee; } 
             .top-header { padding: 10px 5%; } 
+            .logo-container { margin-left: 50px; }
         }
     </style>
 </head>
 <body>
+    <button class="menu-toggle" onclick="toggleMenu()">+</button>
+
     <header class="top-header">
         <div class="logo-container"><img src="logo.jpg" alt="Logo"></div>
         <div class="club-info"><h2>Kivulini Moot & Mock Trial</h2><small>Faculty of Law | TUMA</small></div>
@@ -74,16 +111,17 @@
     <div class="hero"><h1>Moot Court Club Portal</h1></div>
 
     <div class="main-container">
-        <aside class="sidebar">
+        <aside class="sidebar" id="sidebarMenu">
             <h3 style="color:var(--primary); font-size:0.8em; text-transform: uppercase;">Navigation</h3>
-            <a href="#home">Overview</a>
-            <a href="#execs">Executive Board</a>
-            <a href="#library">Legal Library</a>
-            <a href="#contact">Contact Us</a>
+            <a href="#home" onclick="toggleMenu()">Overview</a>
+            <a href="#execs" onclick="toggleMenu()">Executive Board</a>
+            <a href="#publications" onclick="toggleMenu()">Publications</a>
+            <a href="#library" onclick="toggleMenu()">Legal Library</a>
+            <a href="#member-section" onclick="toggleMenu()">Member Area</a>
+            <a href="#contact" onclick="toggleMenu()">Contact Us</a>
         </aside>
 
         <main class="content">
-            <!-- About / Welcome Section -->
             <section id="home" style="padding-top:100px; margin-top:-100px;">
                 <h2 style="text-align:center; border-bottom: 2px solid var(--primary); padding-bottom:10px;">Founder's Welcome Note</h2>
                 <div class="card" style="text-align: left; align-items: flex-start;">
@@ -98,29 +136,37 @@
                 </div>
             </section>
 
-            <!-- Executive Board Section -->
             <section id="execs" style="padding-top:100px; margin-top:-100px;">
                 <h2>Executive Board</h2>
                 <div class="grid-3">
                     <div class="card">
                         <img src="elisha.jpg" alt="Elisha" class="profile-img" onerror="this.style.background='#ddd'">
                         <h4>Elisha Patrick Francis</h4>
-                        <p style="font-size:0.8em;">Founder & Coordinator. 2nd Year Law Student at TUMA[cite: 2]. Specialized in International Criminal Law, Law of Evidence, and Criminal Procedure[cite: 2].</p>
+                        <p style="font-size:0.8em;">Founder & Coordinator. 2nd Year Law Student at TUMA. Specialized in International Criminal Law, Law of Evidence, and Criminal Procedure.</p>
                     </div>
                     <div class="card">
                         <img src="bernad.png" alt="Steven" class="profile-img" onerror="this.style.background='#ddd'">
                         <h4>Steven J Yunge</h4>
-                        <p style="font-size:0.8em;">General Secretary. Specializing in legal research, drafting, and Litigation[cite: 2].</p>
+                        <p style="font-size:0.8em;">General Secretary. Specializing in legal research, drafting, and Litigation.</p>
                     </div>
                     <div class="card">
                         <img src="bernad-mapi.png" alt="Bernard" class="profile-img" onerror="this.style.background='#ddd'">
                         <h4>Bernard M Mapi</h4>
-                        <p style="font-size:0.8em;">Organizing Secretary. Coordinator for moot simulations and member training[cite: 2].</p>
+                        <p style="font-size:0.8em;">Organizing Secretary. Coordinator for moot simulations and member training.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Legal Library Section -->
+            <section id="publications" style="padding-top:100px; margin-top:-100px;">
+                <h2>Featured Publications & Research</h2>
+                <div class="card" style="text-align: left; align-items: flex-start; border-left: 5px solid var(--primary); border-top: 1px solid #eee;">
+                    <h4 style="margin-bottom: 5px;">The Doctrine of Delegated Legislation in Tanzania</h4>
+                    <small style="color: #666; display: block; margin-bottom: 15px;">Published by: Kivulini Research Wing | May 2026</small>
+                    <p style="font-size: 0.9em;">A comprehensive analysis of the constitutional limits of executive law-making powers under the Laws of Tanzania.</p>
+                    <a href="#" style="color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.8em;">Read Full Analysis →</a>
+                </div>
+            </section>
+
             <section id="library" style="padding-top:100px; margin-top:-100px;">
                 <h2>Legal Library</h2>
                 <div class="card" style="text-align: left; align-items: flex-start;">
@@ -145,16 +191,21 @@
                 </div>
             </section>
 
-            <!-- Location Section -->
+            <div id="member-section" style="text-align: center; padding: 20px; border: 1px solid #ccc; margin-top: 20px;">
+                <h3>Kivulini Club Member Portal</h3>
+                <p>Access sensitive mock trial strategies and internal documents.</p>
+                <button onclick="checkAccess()" style="padding: 10px 20px; cursor: pointer; background: var(--primary); color: white; border: none; border-radius: 4px; font-weight: bold;">Login to Member Area</button>
+            </div>
+
             <section id="contact" style="padding-top:100px; margin-top:-100px;">
                 <h2>Club Location</h2>
                 <div class="card">
                     <div style="margin: 20px 0; text-align: left; width: 100%;">
-    <p><strong>📧 Email:</strong> <a href="mailto:kivulinimootmocktrial@gmail.com" style="color: var(--primary); text-decoration: none;">kivulinimootmocktrial@gmail.com</a></p>
-    <p><strong>📞 Phone:</strong> +255 777 789 436 | +255 613 130 508</p>
-    <p><strong>📠 Fax:</strong> [Pending Allocation]</p>
-    <p><strong>☎️ Landline:</strong> [Pending Allocation]</p>
-</div>
+                        <p><strong>📧 Email:</strong> <a href="mailto:kivulinimootmocktrial@gmail.com" style="color: var(--primary); text-decoration: none;">kivulinimootmocktrial@gmail.com</a></p>
+                        <p><strong>📞 Phone:</strong> +255 777 789 436 | +255 613 130 508</p>
+                        <p><strong>📠 Fax:</strong> [Pending Allocation]</p>
+                        <p><strong>☎️ Landline:</strong> [Pending Allocation]</p>
+                    </div>
                     <h4>Kivulini Moot & Mock Trial Club Headquarters</h4>
                     <div class="map-container">
                         <iframe width="100%" height="100%" frameborder="0" src="https://maps.google.com/maps?q=-3.3717555,36.8288723&hl=en&z=17&amp;output=embed"></iframe>
@@ -165,5 +216,35 @@
     </div>
 
     <footer>© 2026 Kivulini Moot & Mock Trial Club | Tumaini University Makumira</footer>
+
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebarMenu');
+            const btn = document.querySelector('.menu-toggle');
+            sidebar.classList.toggle('active');
+            if (sidebar.classList.contains('active')) {
+                btn.innerHTML = "−";
+            } else {
+                btn.innerHTML = "+";
+            }
+        }
+
+        // Updated Member Access Logic
+        function checkAccess() {
+            // This is the "Passcode" you mentioned
+            const correctPasscode = "Kivulini2026";
+            
+            // Ask the user for the code
+            let userEntry = prompt("Enter Member Passcode:");
+
+            if (userEntry === correctPasscode) {
+                alert("Access Granted! Redirecting to internal documents...");
+                // This redirects the user to your PDF or a private page
+                window.location.href = "THE CRIMINAL PROCEDURE ACT.pdf"; 
+            } else {
+                alert("Access Denied. Incorrect passcode.");
+            }
+        }
+    </script>
 </body>
 </html>
