@@ -133,6 +133,30 @@
             .top-header { padding: 10px 5%; } 
             .logo-container { margin-left: 50px; }
         }
+        .doc-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+.download-link {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid var(--primary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.download-link:hover {
+    background: var(--primary);
+    color: white;
+}
     </style>
 </head><!-- Quill Editor Styles and Scripts -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
@@ -191,7 +215,59 @@
                     Kivulini Moot and Mock Trial Club</p>
                 </div>
             </section>
+<section id="public-notice-board" style="padding: 20px;">
+    <h2 style="color: var(--primary); text-align: center;">Active Moot Court Cases</h2>
+    <div id="cases-container">
+        <!-- This is where the uploaded text will appear for everyone -->
+        <p style="text-align: center; color: #666;">Loading active cases...</p>
+    </div>
+    <!-- 1. Add these to your <head> section if they aren't there -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
+<!-- 2. The Updated Content Section -->
+<section style="padding: 20px; background: #f4f4f4;">
+    <div class="card" style="text-align: left; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+
+        <div class="card" style="text-align: left; align-items: flex-start; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 800px; margin: 0 auto;">
+    
+    <h3 style="text-align: left; color: #2c3e50; border-bottom: 2px solid #b22222; padding-bottom: 10px; margin-bottom: 20px;">
+        THE HIGH COURT OF TANZANIA<br>
+        (MUSOMA SUB REGISTRY)
+    </h3>
+
+    <p style="text-align: left; font-weight: bold; margin-bottom: 20px;">
+        CRIMINAL SESSIONS CASE NO. 36 OF 2025<br>
+        REPUBLIC V. MWITA MUTALE
+    </p>
+
+    <div style="background: #fff3f3; padding: 15px; border-left: 5px solid #b22222; margin-bottom: 25px; text-align: left;">
+        <p style="margin: 5px 0;"><strong>📅 Date:</strong> 25th June 2026</p>
+        <p style="margin: 5px 0;"><strong>📍 Venue:</strong> University of Dodoma (UDOM)</p>
+        <p style="margin: 5px 0;"><strong>⚠️ Deadline:</strong> 5th June 2026</p>
+        <p style="margin: 5px 0;"><strong>📞 Contact:</strong> +255 777 789 436 | kivulinimootmocktrial@mail.com</p>
+    </div>
+
+    <h4 style="text-align: left; color: #2c3e50; margin-top: 20px;">Statement of Facts</h4>
+    <p style="text-align: left; line-height: 1.6;">
+        In January 2023, in Musoma, Tanzania, Wanjiku (25) was attacked by her husband, Mwita Mutale. 
+        The couple were living under separation at the time due to increasingly controlling behavior.
+    </p>
+
+    <h4 style="text-align: left; color: #2c3e50; margin-top: 20px;">Legal Issue</h4>
+    <p style="text-align: left; line-height: 1.6;">
+        Whether the actions constitute a serious offense under <strong>Section 130 of the Penal Code</strong>, 
+        and whether "implied consent" exists within a separated marriage under the <strong>Law of Marriage Act, 1971</strong>.
+    </p>
+
+    <h4 style="text-align: left; color: #2c3e50; margin-top: 20px;">Moot Court Questions</h4>
+    <ul style="text-align: left; padding-left: 20px; line-height: 1.8;">
+        <li>What constitutes consent in cases of rape under Tanzanian laws?</li>
+        <li>How does the court balance the accused's right to a fair trial with the victim's dignity?</li>
+        <li>What are the implications of the Law of Marriage Act, 1971 on gender-based violence?</li>
+    </ul>
+</div>
+</section>
             <section id="execs" style="padding-top:100px; margin-top:-100px;">
                 <h2>Executive Board</h2>
                 <div class="grid-3">
@@ -225,28 +301,43 @@
             </section>
 
             <section id="library" style="padding-top:100px; margin-top:-100px;">
-                <h2>Legal Library</h2>
-                <div class="card" style="text-align: left; align-items: flex-start;">
-                    <h4 style="color: var(--primary);">Document Library</h4>
-                    <ul style="list-style: none; padding: 0; font-size: 0.9em; width: 100%;">
-                        <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px;">
-                            <a href="THE CRIMINAL PROCEDURE ACT.pdf" target="_blank" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 Criminal Procedure Act</a>
-                        </li>
-                        <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px;">
-                            <a href="PROTOCOL TO THE AFRICAN CHARTER ON HUMAN AND PEOPLES' RIGHTS ON THE RIGHTS OF WOMEN IN AFRICA.pdf" target="_blank" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 African Charter Resources (Maputo Protocol)</a>
-                        </li>
-                        <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px;">
-                            <a href="MALABO_PROTOCOL.pdf" target="_blank" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 Malabo Protocol</a>
-                        </li>
-                        <li style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 5px;">
-                            <a href="AFRICAN_CHARTER.pdf" target="_blank" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 African Charter on Human and Peoples' Rights</a>
-                        </li>
-                        <li>
-                            <a href="international-law.pdf" target="_blank" style="color:var(--primary); text-decoration: none; font-weight: bold;">📄 Public International Law Notes</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+    <h2>Legal Resource Hub</h2>
+    <div class="grid-3">
+        <!-- Category: Statutes -->
+        <div class="card" style="text-align: left;">
+            <h4 style="color: var(--primary);">Statutes & Acts</h4>
+            <div class="doc-item">
+                <span>📄 Criminal Procedure Act</span>
+                <a href="THE CRIMINAL PROCEDURE ACT.pdf" class="download-link">View</a>
+            </div>
+            <div class="doc-item">
+                <span>📄 Evidence Act</span>
+                <a href="#" class="download-link">View</a>
+            </div>
+        </div>
+
+        <!-- Category: Case Law Summaries -->
+        <div class="card" style="text-align: left;">
+            <h4 style="color: var(--primary);">Case Summaries</h4>
+            <div class="doc-item">
+                <span>⚖️ Gwagilo v. AG</span>
+                <a href="#" class="download-link">Read</a>
+            </div>
+            <div class="doc-item">
+                <span>⚖️ Land Law Precedents</span>
+                <a href="#" class="download-link">Read</a>
+            </div>
+        </div>
+
+        <!-- Category: Study Notes -->
+        <div class="card" style="text-align: left;">
+            <h4 style="color: var(--primary);">Member Contributions</h4>
+            <div id="dynamic-library-list">
+                <p style="font-size: 0.8em; color: #888;">Recent uploads from members will appear here.</p>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- Join the Club Form Section -->
 <section id="join" style="padding-top:100px; margin-top:-100px;">
     <h2>Join the Club</h2>
@@ -269,12 +360,52 @@
 <section id="admin-panel" style="display:none; padding: 25px; border: 2px solid var(--primary); margin-top: 30px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
     <h2 style="color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 10px;">Article Update Dashboard</h2>
     <p style="font-size: 0.9em; color: #666; margin-bottom: 15px;">
-        Paste your content from Word or type directly here. Formatting like bolding and lists will be preserved when you click apply.
-    </p>
-    
-    <!-- Rich Text Editor Container -->
-    <div id="editor" style="height: 350px; background: white; margin-bottom: 20px;"></div>
+    <!-- 1. Add these to your <head> section if they aren't there -->
+<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
+<!-- 2. The Updated Content Section -->
+<section style="padding: 20px; background: #f4f4f4;">
+    <div class="card" style="text-align: left; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h3 style="text-align: center; color: #2c3e50; border-bottom: 2px solid #b22222; padding-bottom: 10px;">
+            THE HIGH COURT OF TANZANIA<br>
+            (MUSOMA SUB REGISTRY)
+        </h3>
+        <p style="text-align: center; font-weight: bold;">CRIMINAL SESSIONS CASE NO. 36 OF 2025<br>REPUBLIC V. MWITA MUTALE</p>
+
+        <div style="background: #fff3f3; padding: 15px; border-left: 5px solid #b22222; margin: 20px 0;">
+            <p><strong>📅 Date:</strong> 25th June 2026</p>
+            <p><strong>📍 Venue:</strong> University of Dodoma (UDOM)</p>
+            <p><strong>⚠️ Deadline:</strong> 5th June 2026</p>
+            <p><strong>📞 Contact:</strong> +255 777 789 436 | kivulinimootmocktrial@mail.com</p>
+        </div>
+
+        <h4>Statement of Facts</h4>
+        <p>In January 2023, in Musoma, Tanzania, Wanjiku (25) was attacked by her husband, Mwita Mutale. The couple were living under separation at the time due to increasingly controlling behavior.</p>
+
+        <h4>Legal Issue</h4>
+        <p>Whether the actions constitute a serious offense under <strong>Section 130 of the Penal Code</strong>, and whether "implied consent" exists within a separated marriage under the <strong>Law of Marriage Act, 1971</strong>.</p>
+
+        <h4>Moot Court Questions</h4>
+        <ul>
+            <li>What constitutes consent in cases of rape under Tanzanian laws?</li>
+            <li>How does the court balance the accused's right to a fair trial with the victim's dignity?</li>
+            <li>What are the implications of the Law of Marriage Act, 1971 on gender-based violence?</li>
+        </ul>
+    </div>
+
+    <!-- Rich Text Editor -->
+    <h4 style="margin-top: 30px;">Draft Your Submissions Below:</h4>
+    <div id="editor-container" style="height: 350px; background: white; border: 1px solid #ccc;"></div>
+</section>
+
+<!-- 3. Initialize the Editor (Put this at the bottom of your <body>) -->
+<script>
+    var quill = new Quill('#editor-container', {
+        theme: 'snow',
+        placeholder: 'Start typing your legal arguments here...'
+    });
+</script>
     <button onclick="saveArticle()" class="submit-btn" style="width: auto; padding: 12px 40px;">Apply Changes to Home Section</button>
 </section>
 
@@ -407,6 +538,74 @@ function checkAccess() {
     } else {
         alert("Access Denied. Incorrect passcode.");
     }
+}
+function uploadFile() {
+    const fileInput = document.getElementById('fileInput');
+    const status = document.getElementById('uploadStatus');
+    const libraryList = document.getElementById('dynamic-library-list');
+
+    if (fileInput.files.length > 0) {
+        const fileName = fileInput.files[0].name;
+        
+        // 1. Simulate the upload
+        status.innerText = "Uploading " + fileName + "...";
+
+        setTimeout(() => {
+            status.innerHTML = "✅ Successfully uploaded to Kivulini Library!";
+            
+            // 2. Dynamically add the new file to the library section (Studocu style)
+            const newDoc = document.createElement('div');
+            newDoc.className = 'doc-item';
+            newDoc.innerHTML = `
+                <span>📄 ${fileName}</span>
+                <a href="#" class="download-link">View</a>
+            `;
+            
+            // Add to the "Member Contributions" column
+            libraryList.appendChild(newDoc);
+            
+            // Clear input
+            fileInput.value = "";
+        }, 1500);
+    } else {
+        alert("Please select a file first.");
+    }
+}
+function publishCase() {
+    // 1. Get the content from the Quill editor
+    var caseContent = quill.root.innerHTML; 
+    
+    // 2. Get the container where the public sees it
+    var container = document.getElementById('cases-container');
+    
+    if (quill.getText().trim().length === 0) {
+        alert("The editor is empty. Please add the case facts first.");
+        return;
+    }
+
+    // 3. Create a new "Post" card
+    var newPost = document.createElement('div');
+    newPost.className = 'card';
+    newPost.style.marginBottom = "20px";
+    newPost.style.borderLeft = "5px solid var(--primary)";
+    newPost.innerHTML = `
+        <div style="font-size: 0.8em; color: #888; margin-bottom: 10px;">
+            Published on: ${new Date().toLocaleDateString()}
+        </div>
+        ${caseContent}
+        <hr>
+        <button class="download-link" onclick="window.print()">Print Case Details</button>
+    `;
+
+    // 4. Clear the "Loading" message and add the new post to the top
+    if (container.innerHTML.includes("Loading active cases...")) {
+        container.innerHTML = "";
+    }
+    container.prepend(newPost);
+
+    // 5. Clear the editor for the next entry
+    quill.setContents([]);
+    alert("Case has been published to the Notice Board!");
 }
     </script>
 </body>
