@@ -134,6 +134,9 @@
             .logo-container { margin-left: 50px; }
         }
     </style>
+</head><!-- Quill Editor Styles and Scripts -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 </head>
 <body>
     <button class="menu-toggle" onclick="toggleMenu()">+</button>
@@ -279,6 +282,15 @@
             <button type="submit" class="submit-btn">Send Application</button>
         </form>
     </div>
+</section><!-- ADMIN ARTICLE UPDATER -->
+<section id="admin-panel" style="display:none; padding: 20px; border: 2px solid var(--primary); margin-top: 20px; background: #fff;">
+    <h2 style="color: var(--primary);">Article Update Dashboard</h2>
+    <p style="font-size: 0.9em; color: #666;">Paste your content from Word here. Formatting (bold, lists, etc.) will be preserved.</p>
+    
+    <!-- Rich Text Editor -->
+    <div id="editor" style="height: 300px; background: white; margin-bottom: 20px;"></div>
+
+    <button onclick="saveArticle()" class="submit-btn">Apply Changes to Page</button>
 </section>
             <div id="member-section" style="text-align: center; padding: 20px; border: 1px solid #ccc; margin-top: 20px;">
                 <h3>Kivulini Club Member Portal</h3>
@@ -362,33 +374,53 @@
         © 2026 Kivulini Moot & Mock Trial Club | Tumaini University Makumira</footer>
 
     <script>
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebarMenu');
-            const btn = document.querySelector('.menu-toggle');
-            sidebar.classList.toggle('active');
-            if (sidebar.classList.contains('active')) {
-                btn.innerHTML = "−";
-            } else {
-                btn.innerHTML = "+";
-            }
-        }
+       // 1. Initialize the Editor
+var quill = new Quill('#editor', {
+    theme: 'snow',
+    modules: {
+        toolbar: [
+            ['bold', 'italic', 'underline'],
+            ['blockquote'],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            ['clean'] // This button clears formatting if needed
+        ]
+    }
+});
 
-        // Updated Member Access Logic
-        function checkAccess() {
-            // This is the "Passcode" you mentioned
-            const correctPasscode = "Kivulini2026";
-            
-            // Ask the user for the code
-            let userEntry = prompt("Enter Member Passcode:");
+// 2. Logic to Save the Article
+function saveArticle() {
+    var content = quill.root.innerHTML; // Captures your Word formatting perfectly
+    
+    // This targets the Founder's Welcome card specifically
+    const welcomeCard = document.querySelector('#home .card');
+    if (welcomeCard) {
+        welcomeCard.innerHTML = content;
+        alert("Changes applied to the view! Copy the updated code to VS Code to make it permanent.");
+    }
+}
 
-            if (userEntry === correctPasscode) {
-                alert("Access Granted! Redirecting to internal documents...");
-                // This redirects the user to your PDF or a private page
-                window.location.href = "THE CRIMINAL PROCEDURE ACT.pdf"; 
-            } else {
-                alert("Access Denied. Incorrect passcode.");
-            }
-        }
+// 3. Updated Menu Toggle
+function toggleMenu() {
+    const sidebar = document.getElementById('sidebarMenu');
+    const btn = document.querySelector('.menu-toggle');
+    sidebar.classList.toggle('active');
+    btn.innerHTML = sidebar.classList.contains('active') ? "−" : "+";
+}
+
+// 4. Updated Member Access to show the Admin Panel
+function checkAccess() {
+    const correctPasscode = "Kivulini2026";
+    let userEntry = prompt("Enter Member Passcode:");
+
+    if (userEntry === correctPasscode) {
+        alert("Access Granted! Admin Dashboard Enabled.");
+        document.getElementById('admin-panel').style.display = 'block';
+        // Smooth scroll to the dashboard
+        document.getElementById('admin-panel').scrollIntoView({ behavior: 'smooth' });
+    } else {
+        alert("Access Denied. Incorrect passcode.");
+    }
+}
     </script>
 </body>
 </html>
