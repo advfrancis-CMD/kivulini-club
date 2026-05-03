@@ -8,7 +8,35 @@
         :root { --primary: #b30000; --dark-bg: #1a1a1a; --sidebar-bg: #fdfdfd; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; scroll-behavior: smooth; background-color: #fff; }
         
-        .top-header { background: var(--primary); padding: 15px 5%; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; width: 100%; z-index: 1000; box-shadow: 0 4px 8px rgba(0,0,0,0.2); box-sizing: border-box; }
+       .top-header { 
+    background: var(--primary); 
+    padding: 10px 5%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between; /* Pushes logo to left and login to right */
+    position: fixed; 
+    top: 0; 
+    width: 100%; 
+    z-index: 1000; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+    box-sizing: border-box; 
+}
+
+.webmail-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85em;
+    border: 1px solid white;
+    padding: 5px 12px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.webmail-link:hover {
+    background: white;
+    color: var(--primary);
+}
         .logo-container { display: flex; align-items: center; background: #fff; padding: 5px 10px; border-radius: 4px; }
         .logo-container img { height: 40px; }
         .club-info { color: #fff; flex: 1; margin-left: 15px; }
@@ -111,8 +139,21 @@
     <button class="menu-toggle" onclick="toggleMenu()">+</button>
 
     <header class="top-header">
+    <div style="display: flex; align-items: center;">
         <div class="logo-container"><img src="logo.jpg" alt="Logo"></div>
-        <div class="club-info"><h2>Kivulini Moot & Mock Trial</h2><small>Faculty of Law | TUMA</small></div>
+        <div class="club-info">
+            <h2>Kivulini Moot & Mock Trial</h2>
+            <small>Faculty of Law | TUMA</small>
+        </div>
+    </div>
+
+    <!-- This is the top rightbar -->
+    <div class="top-rightbar">
+        <a href="https://mail.google.com/" target="_blank" class="webmail-link">
+            Webmail Login
+        </a>
+    </div>
+</header>
     </header>
 
     <div class="ticker-wrap">
